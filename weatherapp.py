@@ -11,7 +11,7 @@ data = response.json()
 lat = data['lat']
 lon = data['lon']    
 
-def Get_Weather(City_Name):
+def Get_Weather():
     Main_URL = 'https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}'.format(lat, lon, API_KEY)
     Response = requests.get(Main_URL)
     Data = Response.json()
@@ -32,10 +32,7 @@ def Get_Weather(City_Name):
         print("Error")
 
 def main():
-    City_Name = input("Enter City Name: ")
-    while(City_Name==""):
-        City_Name = input("Enter City Name: ")
-    Weather_Data = Get_Weather(City_Name)
+    Weather_Data = Get_Weather()
     print(Weather_Data)
 
 main()
